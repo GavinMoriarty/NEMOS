@@ -1,0 +1,135 @@
+
+/* Link */
+a.obj {
+    color: black;
+    text-decoration: none;
+}
+
+     a.obj:visited {
+     color: black;
+     text-decoration: none;
+    }
+ 
+     a.obj:hover, a.obj:focus {
+     color: black;
+     text-decoration: underline;
+    }
+ 
+     a.obj:active {
+     color: black;
+     text-decoration: none;
+    }
+
+/* Banner */
+#banner {
+    background-color: #ccc;
+    text-align: center;
+    padding: 5px;
+    align-content: center;
+}
+
+/* Button */
+.btn {
+    color: black;
+    text-decoration: none;
+    padding: 0.25em;
+    border: 1px solid #333333;
+    margin-right: 0.5em;
+  }
+  
+  .btn:hover, .btn:focus {
+    color: black;
+    text-decoration: underline;
+  }
+
+  .btn:active, .btn:visited {
+    color: black;
+    text-decoration: none;
+  }
+
+/* Body */
+#body {
+    display: block;
+    height: auto;
+    padding: 5px;
+    align-content: center;
+    border-bottom: 1px solid black;
+    font-family: PingFang TC;
+}
+
+/* Footer */
+#footer {
+    clear: both;
+    position: relative;
+    background-color: white;
+    padding: 0.25em;
+    bottom: 0;
+    left: 0;
+    height: 35px;
+}
+
+/* Header */
+#header {
+    text-align: center;
+}
+
+/* Main */
+#main {
+    color: black;
+    border-radius: 0.25em;
+}
+
+/* Grid */
+#object {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    }
+
+    #object-1 { 
+        grid-area: 1 / 1 / 2 / 2; 
+        padding: 10px;
+        text-align: right;
+        border: 1px solid black;
+        background-image: url(../images/gault/lightcurve.png);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    #object-2 {
+        grid-area: 1 / 2 / 2 / 3;
+        padding: 10px;
+        text-align: left;
+        border: 1px solid black;
+        background-color: white;
+    }
+
+    #object-3 { 
+        grid-area: 2 / 1 / 3 / 2; 
+        padding: 10px;
+        text-align: right;
+        border: 1px solid black;
+        background-image: url(../images/gault/taxonomy.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    #object-4 {
+        grid-area: 2 / 2 / 3 / 3;
+        padding: 10px;
+        text-align: left;
+        border: 1px solid black;
+        background-color: white;
+    }
+
+/* Wrapper */
+#wrapper {
+    background-image: linear-gradient(#00849C, #B1A6A2);
+    height: auto; 
+    width: auto;
+    box-sizing: border-box;
+}
