@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html>
+    <!-- Metadata -->
+    <head>
+        <title>NEMOS Project</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+        <link rel="stylesheet" href="/CSS/main.css" />
+    </head>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+         <!-- Under Construction Banner-->
+         <section>
+            <div id="banner">
+                <p style="margin-top: 0px; margin-bottom: 0px; font-size: 2vw; font-family: PingFang TC;">
+                    Website is constantly under construction.  Enjoy the progress!
+                </p>
+        </section>
+
+        <!-- Header -->
+        <section>    
+            <header id="header">
+                <!-- <span class="godo"><img src="images/GODO.jpeg" alt="" /></span> -->
+                <h1 style="font-size: 5vw; margin: .25em; color: #A1A1A1; text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.5); font-family: PingFang TC;">
+                    NEMOS Project</h1>
+                <p style="font-size: 2vw; margin: .25em; color: #A1A1A1; text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.5); font-family: PingFang TC;">
+                    Near-Earth MuSCAT ObservationS</p>
+            </header>
+        </section>
+
+        <!-- Navigation -->
+        <section>
+            <div class="nav">
+                <a class="active" href="#home">Home</a>
+                <form id="search-form" onsubmit="handleSearch(event)">
+                    <div class="search-wrapper">
+                        <input type="text" id="search-input" placeholder="Search..." autocomplete="off"/>
+                        <button type="Submit">🔍</button>
+                        <div id="autocomplete-results" class="autocomplete-box"></div>
+                    </div>
+                </form>
+                
+                <!-- <a href="/search.html">Search</a> -->
+
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <div id="main">
+
+            <!-- Body -->
+            <body style="background-color: #1C8ACE; height: auto;
+             width: auto; margin: 1em; font-family: PingFang TC;">
+                <section>
+                    <div id="body1">
+                        <h3 style="font-size: 5vw; margin: 2vw; margin-left: 5px;">NEMOS Database Showcase</h3>
+                        <p>Pulling data from observation databases and showing the results in a searchable way.
+                        </p>
+                        <br>
+                        <h2>Available Objects</h2>
+                            <!-- OBJECT_LIST -->
+                    </div>
+                </section>
+
+                <script>
+                    const input = document.getElementById('search-input');
+                    const resultsBox = document.getElementById('autocomplete-results');
+
+                    let currentFocus = -1;
+                    let suggestions = [];
+
+                    input.addEventListener('input', async () => {
+                        const query = input.value.trim();
+                        resultsBox.innerHTML = '';
+                        currentFocus = -1;
+
+                        if (!query) return;
+
+                        try {
+                        const res = await fetch(`/api/search?q=${encodeURIComponent(query)}`);
+                        suggestions = await res.json();
+
+                        suggestions.forEach((obj, index) => {
+                            const div = document.createElement('div');
+                            div.classList.add('autocomplete-item');
+                            div.textContent = obj.name;
+                            div.setAttribute('data-index', index);
+                            div.onclick = () => {
+                            window.location.href = `/object/${obj.slug}`;
+                            };
+                            resultsBox.appendChild(div);
+                        });
+                        } catch (err) {
+                        console.error('Autocomplete error:', err);
+                        }
+                    });
+
+                    input.addEventListener('keydown', (e) => {
+                        const items = resultsBox.querySelectorAll('.autocomplete-item');
+
+                        if (e.key === 'ArrowDown') {
+                        e.preventDefault();
+                        currentFocus++;
+                        if (currentFocus >= items.length) currentFocus = 0;
+                        setActive(items);
+                        }
+
+                        if (e.key === 'ArrowUp') {
+                        e.preventDefault();
+                        currentFocus--;
+                        if (currentFocus < 0) currentFocus = items.length - 1;
+                        setActive(items);
+                        }
+
+                        if (e.key === 'Enter') {
+                        if (currentFocus > -1 && suggestions[currentFocus]) {
+                            e.preventDefault();
+                            window.location.href = `/object/${suggestions[currentFocus].slug}`;
+                        }
+                        }
+                    });
+
+                    function setActive(items) {
+                        items.forEach((item, i) => {
+                        item.classList.remove('active');
+                        if (i === currentFocus) {
+                            item.classList.add('active');
+                            item.scrollIntoView({ block: 'nearest' });
+                        }
+                        });
+                    }
+
+                    // Hide autocomplete when input loses focus
+                    input.addEventListener('blur', () => {
+                        setTimeout(() => {
+                        resultsBox.innerHTML = '';
+                        currentFocus = -1;
+                        }, 150);
+                    });
+                    </script>
+                
+            </body>
+
+        </div>
+
+        <!-- Footer -->
+            <section>
+                <div id="footer">
+                    <footer style="margin-bottom: auto;">
+                        <span style="color: black;">
+                            Coding done by Gavin Moriarty</span>
+                        <br>
+                        <span style="color: #50626D; font-style: italic; font-weight: bold; padding-bottom: .25em;">
+                            Updated:  July 18, 2025...1:02am AZ</span>
+                    </footer>
+
+                </div>
+            </section>
+    
+    </div>
+</html>

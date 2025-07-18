@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Search</title>
+</head>
+<body>
+  <h2>Search Astronomy Object</h2>
+  <form id="search-form">
+    <input type="text" id="search-input" placeholder="e.g., Mars" required />
+    <button type="submit">Search</button>
+  </form>
+  <p id="error-message" style="color: red;"></p>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.getElementById('search-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        const query = document.getElementById('search-input').value.trim().toLowerCase();
+
+        fetch('/api/objects')
+          .then(res => res.json())
+          .then(objects => {
+            const match = objects.find(obj =>
+              obj.name.toLowerCase() === query || obj.slug.toLowerCase() === query
+            );
+            if (match) {
+              window.location.href = `/object/${match.slug}`;
+            } else {
+              document.getElementById('error-message').textContent = 'Object not found.';
+            }
+          })
+          .catch(err => {
+            console.error('Error fetching objects:', err);
+            document.getElementById('error-message').textContent = 'Error searching.';
+          });
+      });
+    });
+  </script>
+</body>
+</html>

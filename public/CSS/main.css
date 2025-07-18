@@ -1,0 +1,245 @@
+/* Autocomplete */
+.autocomplete-box {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  z-index: 9999;
+  max-height: 200px;
+  overflow-y: auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.autocomplete-item {
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.autocomplete-item.active {
+  background-color: #e0e0e0;
+  font-weight: bold;
+}
+
+.autocomplete-item:hover {
+  background-color: #f0f0f0;
+}
+
+
+/* Banner */
+    #banner {
+        background-color: #ccc;
+        text-align: center;
+        padding: 5px;
+        align-content: center;
+    }
+
+/* Body */
+    #body1 {
+        display: block;
+        position: relative;
+        align-content: center;
+        width: auto;
+        height: auto;
+        background-color: #C1CED1;
+        padding: .5em;
+        font-family: PingFang TC;
+    }
+
+
+/* Dropdown */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+  z-index: 1000;
+  border-radius: 6px;
+  padding: 8px 0;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 8px 16px;
+  text-decoration: none;
+  color: black;
+  transition: background 0.2s;
+}
+
+.dropdown-content a:hover {
+  background-color: #eee;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Footer */
+    #footer {
+        clear: both;
+        position: relative;
+        background-color: white;
+        padding: 0.5em;
+        bottom: 0;
+        left: 0;
+        font-family: PingFang TC;
+    }
+
+/* Header */
+    #header {
+        padding: 1em 3em 1em 3em;
+        text-align: center;
+        background-image: url(../images/graphic.png);
+        background-size: 100vw;
+        background-position: center;
+        height: 15vw;
+        align-content: center;
+        opacity: .8;
+        font-family: PingFang TC;
+    }
+
+
+/* Images */
+    #telescopes {
+        height: 350px;
+    }
+
+/* Main */
+    #main {
+        background-color: aquamarine;
+        color: black;
+        border-radius: 0.25em;
+    }
+
+/* Navigation */
+
+/* Add a black background color to the top navigation bar */
+    .nav {
+        overflow: visible;
+        background-color: #e9e9e9;
+        display:flex ;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+    }
+
+/* Style the links inside the navigation bar */
+    .nav a {
+        float: left;
+        display: flex;
+        color: black;
+        text-align: center;
+        padding: 10px;
+        text-decoration: none;
+        justify-content: space-between;
+        font-size: 17px;
+    }
+
+/* Change the color of links on hover */
+    .nav a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+/* Style the "active" element to highlight the current page */
+    .nav a.active {
+        background-color: #2196F3;
+        color: white;
+    }
+
+
+/* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
+    @media screen and (max-width: 600px) {
+        .nav a, .nav input[type=text] {
+            float: none;
+            display: block;
+            text-align: left;
+            width: 100%;
+            margin: 0;
+            padding: 14px;
+        }
+        .nav input[type=text] {
+            border: 1px solid #ccc;
+        }
+    }
+
+/* Search */
+
+#search-form {
+  margin-left: auto;
+  position: relative;
+}
+
+/* Wrapper around the input and button */
+.search-wrapper {
+  margin-left: auto;
+}
+
+/* Search input with room on the right */
+#search-input {
+  padding: 6px 36px 6px 10px; /* Leave space for the button */
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  font-size: 14px;
+  width: 180px;
+  box-sizing: border-box;
+}
+
+/* The button overlays inside the input field */
+#search-form button {
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: #555;
+  padding: 0; /* remove default button padding */
+  line-height: 1; /* reduce line height for icon */
+}
+
+/* Optional: Button hover effect */
+#search-form button:hover {
+  color: black;
+}
+
+/* Title */
+    title {
+        display: none;
+    }
+
+/* Wrapper */
+    #wrapper {
+        width: auto;
+        box-sizing: border-box;
+    }
+
+/* List */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  margin-bottom: 8px;
+}
+
+ul li a {
+  text-decoration: none;
+  color: #0077cc;
+}
+
+ul li a:hover {
+  text-decoration: underline;
+}
