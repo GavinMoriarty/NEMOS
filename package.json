@@ -20,5 +20,9 @@
   "dependencies": {
     "express": "^5.1.0",
     "sqlite3": "^5.1.7"
+  },
+  "scripts": {
+  "start": "node server.js",
+  "postinstall": "npm rebuild sqlite3 --build-from-source"
   }
 }
